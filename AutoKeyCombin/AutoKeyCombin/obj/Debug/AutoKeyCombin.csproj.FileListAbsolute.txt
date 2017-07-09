@@ -1,0 +1,9 @@
+E:\github\DOTA2AutoKey\AutoKeyCombin\AutoKeyCombin\bin\Debug\AutoKeyCombin.exe.config
+E:\github\DOTA2AutoKey\AutoKeyCombin\AutoKeyCombin\bin\Debug\AutoKeyCombin.exe
+E:\github\DOTA2AutoKey\AutoKeyCombin\AutoKeyCombin\bin\Debug\AutoKeyCombin.pdb
+E:\github\DOTA2AutoKey\AutoKeyCombin\AutoKeyCombin\obj\Debug\AutoKeyCombin.csprojResolveAssemblyReference.cache
+E:\github\DOTA2AutoKey\AutoKeyCombin\AutoKeyCombin\obj\Debug\AutoKeyCombin.Properties.Resources.resources
+E:\github\DOTA2AutoKey\AutoKeyCombin\AutoKeyCombin\obj\Debug\AutoKeyCombin.csproj.GenerateResource.Cache
+E:\github\DOTA2AutoKey\AutoKeyCombin\AutoKeyCombin\obj\Debug\AutoKeyCombin.exe
+E:\github\DOTA2AutoKey\AutoKeyCombin\AutoKeyCombin\obj\Debug\AutoKeyCombin.pdb
+E:\github\DOTA2AutoKey\AutoKeyCombin\AutoKeyCombin\obj\Debug\AutoKeyCombin.Form1.resources
