@@ -1,11 +1,17 @@
-﻿namespace AutoKeyCombin
+﻿using System;
+using System.ComponentModel;
+using System.Drawing;
+using System.Runtime.InteropServices;
+using System.Windows.Forms;
+
+namespace AutoKeyCombin
 {
     partial class Form1
     {
         /// <summary>
         /// 必需的设计器变量。
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// 清理所有正在使用的资源。
@@ -32,12 +38,12 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.AutoScaleDimensions = new SizeF(6F, 12F);
+            this.AutoScaleMode = AutoScaleMode.Font;
+            this.ClientSize = new Size(284, 261);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.FormClosing += new FormClosingEventHandler(this.Form1_FormClosing);
             this.ResumeLayout(false);
 
         }

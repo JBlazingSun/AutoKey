@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -9,6 +10,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using csWg01;
 
 //F3 天火  +D
 //4   地狱火 +D
@@ -21,7 +23,7 @@ using System.Windows.Forms;
 //Alt+2  冰墙  +D
 //Alt+C  急速冷却 +D
 
-    //F11开关
+//F11开关
 
 namespace AutoKeyCombin
 {
@@ -29,11 +31,25 @@ namespace AutoKeyCombin
     {
         private bool open = true;
         KeyboardHook kh;
-        public const int KEYDOWN = 0;
-        public const int KEYUP = 2;
+        public const int KEYDOWN = 0x0104;
+        public const int KEYUP = 0x0105;
+
+        public const int VK_E = 0x45;
 
         [DllImport("user32.dll")]
         public static extern void keybd_event(byte bVk, byte bScan, int dwFlags, int dwExtraInfo);
+
+        [DllImport("user32.dll", SetLastError = true)]
+        public static extern IntPtr FindWindowEx(IntPtr parentHandle, IntPtr childAfter, string className, string windowTitle);
+
+        [DllImport("user32.dll", EntryPoint = "FindWindow")]
+        public static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
+
+        [DllImport("user32.dll", EntryPoint = "SendMessage")]
+        public static extern int SendMessage(IntPtr hwnd, int wMsg, uint wParam, uint lParam);
+
+        [DllImport("user32.dll", EntryPoint = "PostMessage")]
+        static extern bool PostMessage(IntPtr hwnd, int msg, uint wParam, uint lParam);
 
         public Form1()
         {
@@ -42,6 +58,8 @@ namespace AutoKeyCombin
             kh = new KeyboardHook();
             kh.SetHook();
             kh.OnKeyDownEvent += kh_OnKeyDownEvent;
+
+            WinIo.Initialize();
         }
 
         void kh_OnKeyDownEvent(object sender, KeyEventArgs e)
@@ -54,22 +72,9 @@ namespace AutoKeyCombin
             {
                 if (e.KeyData == (Keys.F3))//天火
                 {
-                    keybd_event((byte) Keys.E, 0, KEYDOWN, 0);
+                    WinIo.MykeyDown(VKKey.VK_E);
                     Thread.Sleep(100);
-                    keybd_event((byte)Keys.E, 0, KEYUP, 0);
-                    Thread.Sleep(100);
-                    keybd_event((byte)Keys.E, 0, KEYDOWN, 0);
-                    Thread.Sleep(100);
-                    keybd_event((byte)Keys.E, 0, KEYUP, 0);
-                    Thread.Sleep(100);
-                    keybd_event((byte)Keys.E, 0, KEYDOWN, 0);
-                    Thread.Sleep(100);
-                    keybd_event((byte)Keys.E, 0, KEYUP, 0);
-                    Thread.Sleep(100);
-                    keybd_event((byte)Keys.D, 0, KEYDOWN, 0);
-                    Thread.Sleep(100);
-                    keybd_event((byte)Keys.D, 0, KEYUP, 0);
-                    Thread.Sleep(100);
+                    WinIo.MykeyUp(VKKey.VK_E);
                 }
                 if (e.KeyData == (Keys.D4))//地狱火
                 {
@@ -115,6 +120,7 @@ namespace AutoKeyCombin
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
+            WinIo.Shutdown();
             kh.UnHook();
         }
     }
