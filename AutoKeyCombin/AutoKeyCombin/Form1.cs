@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using csWg01;
+
 
 //F3 天火  +D
 //4   地狱火 +D
@@ -59,7 +59,6 @@ namespace AutoKeyCombin
             kh.SetHook();
             kh.OnKeyDownEvent += kh_OnKeyDownEvent;
 
-            WinIo.Initialize();
         }
 
         void kh_OnKeyDownEvent(object sender, KeyEventArgs e)
@@ -72,55 +71,53 @@ namespace AutoKeyCombin
             {
                 if (e.KeyData == (Keys.F3))//天火
                 {
-                    WinIo.MykeyDown(VKKey.VK_E);
-                    Thread.Sleep(100);
-                    WinIo.MykeyUp(VKKey.VK_E);
+                    var winio = new WinIO();
+                    winio.KeyDownUp(Keys.E);
                 }
-                if (e.KeyData == (Keys.D4))//地狱火
-                {
-                    MessageBox.Show("地狱火");
-                }
-                if (e.KeyData == (Keys.D5))//冲击波
-                {
-                    MessageBox.Show("冲击波");
-                }
-                if (e.KeyData == (Keys.D6))//迅捷
-                {
-                    MessageBox.Show("迅捷");
-                }
-                if (e.KeyData == (Keys.D7))//隐身
-                {
-                    MessageBox.Show("隐身");
-                }
-                if (e.KeyData == (Keys.CapsLock))//电磁脉冲
-                {
-                    MessageBox.Show("电磁脉冲");
-                }
-                if (e.KeyData == (Keys.X| Keys.Alt))//飓风
-                {
-                    MessageBox.Show("飓风");
-                }
-                if (e.KeyData == (Keys.D3 | Keys.Alt))//精灵
-                {
-                    MessageBox.Show("精灵");
-                }
+                //if (e.KeyData == (Keys.D4))//地狱火
+                //{
+                //    MessageBox.Show("地狱火");
+                //}
+                //if (e.KeyData == (Keys.D5))//冲击波
+                //{
+                //    MessageBox.Show("冲击波");
+                //}
+                //if (e.KeyData == (Keys.D6))//迅捷
+                //{
+                //    MessageBox.Show("迅捷");
+                //}
+                //if (e.KeyData == (Keys.D7))//隐身
+                //{
+                //    MessageBox.Show("隐身");
+                //}
+                //if (e.KeyData == (Keys.CapsLock))//电磁脉冲
+                //{
+                //    MessageBox.Show("电磁脉冲");
+                //}
+                //if (e.KeyData == (Keys.X| Keys.Alt))//飓风
+                //{
+                //    MessageBox.Show("飓风");
+                //}
+                //if (e.KeyData == (Keys.D3 | Keys.Alt))//精灵
+                //{
+                //    MessageBox.Show("精灵");
+                //}
 
-                if (e.KeyData == (Keys.D2 | Keys.Alt))//冰墙
-                {
-                    MessageBox.Show("冰墙");
-                }
+                //if (e.KeyData == (Keys.D2 | Keys.Alt))//冰墙
+                //{
+                //    MessageBox.Show("冰墙");
+                //}
 
-                if (e.KeyData == (Keys.C | Keys.Alt))//急速冷却
-                {
-                    MessageBox.Show("急速冷却");
-                }
+                //if (e.KeyData == (Keys.C | Keys.Alt))//急速冷却
+                //{
+                //    MessageBox.Show("急速冷却");
+                //}
             }
 
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            WinIo.Shutdown();
             kh.UnHook();
         }
     }
