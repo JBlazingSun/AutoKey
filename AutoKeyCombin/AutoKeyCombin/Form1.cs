@@ -11,20 +11,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
-
-//F3 天火  +D
-//4   地狱火 +D
-//5  冲击波 +D 
-//6   迅捷  +D
-//7  隐身  +D
-//大写切换  电磁脉冲  +D
-//左Shift    飓风  +D
-//ALT+3 精灵 +D
-//Alt+2  冰墙  +D
-//Alt+C  急速冷却 +D
-
-//F11开关
+using static AutoKeyCombin.MyKey;
 
 namespace AutoKeyCombin
 {
@@ -32,27 +19,7 @@ namespace AutoKeyCombin
     {
         private bool open = true;
         KeyboardHook kh;
-        public const int KEYDOWN = 0x0104;
-        public const int KEYUP = 0x0105;
-        public const int VK_E = 0x45;
-
-        [DllImport("user32.dll")]
-        public static extern void keybd_event(byte bVk, byte bScan, int dwFlags, int dwExtraInfo);
-
-        [DllImport("user32.dll", SetLastError = true)]
-        public static extern IntPtr FindWindowEx(IntPtr parentHandle, IntPtr childAfter, string className, string windowTitle);
-
-        [DllImport("user32.dll", EntryPoint = "FindWindow")]
-        public static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
-
-        [DllImport("user32.dll", EntryPoint = "SendMessage")]
-        public static extern int SendMessage(IntPtr hwnd, int wMsg, uint wParam, uint lParam);
-
-        [DllImport("user32.dll", EntryPoint = "PostMessage")]
-        static extern bool PostMessage(IntPtr hwnd, int msg, uint wParam, uint lParam);
-
-
-        private CDD dd;
+        public static CDD dd;
 
         public Form1()
         {
@@ -81,6 +48,10 @@ namespace AutoKeyCombin
 
             return;
         }
+        public int interval = 200;
+        public int thirdinterval = 100;
+        public bool isdownD = false;
+        public bool isdownR = true;
         void kh_OnKeyDownEvent(object sender, KeyEventArgs e)
         {
             if (e.KeyData == (Keys.F11))
@@ -91,48 +62,84 @@ namespace AutoKeyCombin
             {
                 if (e.KeyData == (Keys.F3))//天火
                 {
-                    int ddcode = 303;                         //DD键码
-                    dd.str("e");
-                    dd.str("e");                        // 1=按下 2=放开   
+                    KeyDownUp(K_E, 3, thirdinterval);
+
+                    IsDownR(isdownR, interval);
+                    //IsDownD(true,interval);
                 }
-                //if (e.KeyData == (Keys.D4))//地狱火
-                //{
-                //    MessageBox.Show("地狱火");
-                //}
-                //if (e.KeyData == (Keys.D5))//冲击波
-                //{
-                //    MessageBox.Show("冲击波");
-                //}
-                //if (e.KeyData == (Keys.D6))//迅捷
-                //{
-                //    MessageBox.Show("迅捷");
-                //}
-                //if (e.KeyData == (Keys.D7))//隐身
-                //{
-                //    MessageBox.Show("隐身");
-                //}
-                //if (e.KeyData == (Keys.CapsLock))//电磁脉冲
-                //{
-                //    MessageBox.Show("电磁脉冲");
-                //}
-                //if (e.KeyData == (Keys.X| Keys.Alt))//飓风
-                //{
-                //    MessageBox.Show("飓风");
-                //}
-                //if (e.KeyData == (Keys.D3 | Keys.Alt))//精灵
-                //{
-                //    MessageBox.Show("精灵");
-                //}
+                if (e.KeyData == (Keys.D4))//冲击波
+                {
+                    KeyDownUp(K_Q, 1, thirdinterval);
+                    KeyDownUp(K_W, 1, thirdinterval);
+                    KeyDownUp(K_E, 1, thirdinterval);
 
-                //if (e.KeyData == (Keys.D2 | Keys.Alt))//冰墙
-                //{
-                //    MessageBox.Show("冰墙");
-                //}
+                    IsDownR(isdownR, interval);
+                    IsDownD(isdownD, interval);
+                }
+                if (e.KeyData == (Keys.D5))//地狱火
+                {
+                    KeyDownUp(K_W, 1,thirdinterval);
+                    KeyDownUp(K_E, 2, thirdinterval);
 
-                //if (e.KeyData == (Keys.C | Keys.Alt))//急速冷却
-                //{
-                //    MessageBox.Show("急速冷却");
-                //}
+                    IsDownR(isdownR, interval);
+                    IsDownD(isdownD, interval);
+                }
+                if (e.KeyData == (Keys.D6))//迅捷
+                {
+                    KeyDownUp(K_W, 2, thirdinterval);
+                    KeyDownUp(K_E, 1, thirdinterval);
+
+                    IsDownR(isdownR, interval);
+                    IsDownD(isdownD, interval);
+                }
+                if (e.KeyData == (Keys.D7))//隐身
+                {
+                    KeyDownUp(K_Q, 2, thirdinterval);
+                    KeyDownUp(K_W, 1, thirdinterval);
+
+                    IsDownR(isdownR, interval);
+                    //IsDownD(true, interval);
+                }
+                if (e.KeyData == (Keys.CapsLock))//电磁脉冲
+                {
+                    KeyDownUp(K_W, 3, thirdinterval);
+
+                    IsDownR(isdownR, interval);
+                    IsDownD(isdownD, interval);
+                }
+                if (e.KeyData == (Keys.X | Keys.Alt))//飓风
+                {
+                    KeyDownUp(K_Q, 1, thirdinterval);
+                    KeyDownUp(K_W, 2, thirdinterval);
+
+                    IsDownR(isdownR, interval);
+                    IsDownD(isdownD, interval);
+                }
+                if (e.KeyData == (Keys.D3 | Keys.Alt))//精灵
+                {
+                    KeyDownUp(K_E, 2, thirdinterval);
+                    KeyDownUp(K_Q, 1, thirdinterval);
+
+                    IsDownR(isdownR, interval);
+                    //IsDownD(true, interval);
+                }
+
+                if (e.KeyData == (Keys.D2 | Keys.Alt))//冰墙
+                {
+                    KeyDownUp(K_E, 1, thirdinterval);
+                    KeyDownUp(K_Q, 2, thirdinterval);
+
+                    IsDownR(isdownR, interval);
+                    //IsDownD(true, interval);
+                }
+
+                if (e.KeyData == (Keys.C | Keys.Alt))//急速冷却
+                {
+                    KeyDownUp(K_Q, 3, thirdinterval);
+
+                    IsDownR(isdownR, interval);
+                    IsDownD(isdownD, interval);
+                }
             }
 
         }
