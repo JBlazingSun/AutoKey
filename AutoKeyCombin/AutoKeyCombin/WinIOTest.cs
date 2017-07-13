@@ -95,7 +95,6 @@ namespace AutoKeyCombin
             Thread.Sleep(100);
             KeyDown(vKeyCoad);
             Shutdown();
-            MessageBox.Show("asd");
         }
 
     }
