@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -33,7 +34,6 @@ namespace AutoKeyCombin
         KeyboardHook kh;
         public const int KEYDOWN = 0x0104;
         public const int KEYUP = 0x0105;
-
         public const int VK_E = 0x45;
 
         [DllImport("user32.dll")]
@@ -51,6 +51,9 @@ namespace AutoKeyCombin
         [DllImport("user32.dll", EntryPoint = "PostMessage")]
         static extern bool PostMessage(IntPtr hwnd, int msg, uint wParam, uint lParam);
 
+
+        private CDD dd;
+
         public Form1()
         {
             InitializeComponent();
@@ -58,9 +61,26 @@ namespace AutoKeyCombin
             kh = new KeyboardHook();
             kh.SetHook();
             kh.OnKeyDownEvent += kh_OnKeyDownEvent;
-
+            dd = new CDD();
+            LoadDllFile(Directory.GetCurrentDirectory() + "\\dd74000x64.64.dll");
         }
+        private void LoadDllFile(string dllfile)
+        {
+            
+            System.IO.FileInfo fi = new System.IO.FileInfo(dllfile);
+            if (!fi.Exists)
+            {
+                MessageBox.Show("文件不存在");
+                return;
+            }
 
+            int ret = dd.Load(dllfile);
+            if (ret == -2) { MessageBox.Show("装载库时发生错误"); return; }
+            if (ret == -1) { MessageBox.Show("取函数地址时发生错误"); return; }
+            if (ret == 0) { MessageBox.Show("非增强模块"); }
+
+            return;
+        }
         void kh_OnKeyDownEvent(object sender, KeyEventArgs e)
         {
             if (e.KeyData == (Keys.F11))
@@ -71,8 +91,9 @@ namespace AutoKeyCombin
             {
                 if (e.KeyData == (Keys.F3))//天火
                 {
-                    var winio = new WinIO();
-                    winio.KeyDownUp(Keys.E);
+                    int ddcode = 303;                         //DD键码
+                    dd.str("e");
+                    dd.str("e");                        // 1=按下 2=放开   
                 }
                 //if (e.KeyData == (Keys.D4))//地狱火
                 //{

@@ -1,0 +1,7 @@
+运行 DDInst.exe 安装驱动，如果已安装则执行卸载，完成后自动退出。
+
+以32位编译的程序调用 DDHID32.DLL
+以64位编译的程序调用 DDHID64.DLL
+
+加载DLL后，首先执行 dd.DD_int(0) ，
+说明见  DDTestDlg.cpp 第128行

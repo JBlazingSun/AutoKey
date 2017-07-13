@@ -39,9 +39,15 @@ namespace AutoKeyCombin
 
         public void Initialize()
         {
-            if (InitializeWinIo())
+            try
             {
+                InitializeWinIo();
                 KBCWait4IBE();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+                throw;
             }
         }
         public void Shutdown()
