@@ -12,13 +12,14 @@ namespace AutoKeyCombin
         //F3 天火  +D
         //4   地狱火 +D
         //5  冲击波 +D 
-        //6   迅捷  +D
+        //6  急速冷却 +D
         //7  隐身  +D
         //大写切换  电磁脉冲  +D
-        //左Shift    飓风  +D
-        //ALT+3 精灵 +D
-        //Alt+2  冰墙  +D
-        //Alt+C  急速冷却 +D
+        //T    飓风  +D
+        //H 精灵 +D
+        //G  冰墙  +D
+        
+        //迅捷  +D 不用
         //F11开关
 
         public const int K_F3 = 103;

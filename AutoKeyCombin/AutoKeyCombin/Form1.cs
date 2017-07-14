@@ -84,14 +84,14 @@ namespace AutoKeyCombin
                     IsDownR(isdownR, interval);
                     IsDownD(isdownD, interval);
                 }
-                if (e.KeyData == (Keys.D6))//迅捷
-                {
-                    KeyDownUp(K_W, 2, thirdinterval);
-                    KeyDownUp(K_E, 1, thirdinterval);
+                //if (e.KeyData == (Keys.D6))//迅捷
+                //{
+                //    KeyDownUp(K_W, 2, thirdinterval);
+                //    KeyDownUp(K_E, 1, thirdinterval);
 
-                    IsDownR(isdownR, interval);
-                    IsDownD(isdownD, interval);
-                }
+                //    IsDownR(isdownR, interval);
+                //    IsDownD(isdownD, interval);
+                //}
                 if (e.KeyData == (Keys.D7))//隐身
                 {
                     KeyDownUp(K_Q, 2, thirdinterval);
@@ -107,7 +107,7 @@ namespace AutoKeyCombin
                     IsDownR(isdownR, interval);
                     IsDownD(isdownD, interval);
                 }
-                if (e.KeyData == (Keys.X | Keys.Alt))//飓风
+                if (e.KeyData == (Keys.T))//飓风
                 {
                     KeyDownUp(K_Q, 1, thirdinterval);
                     KeyDownUp(K_W, 2, thirdinterval);
@@ -115,7 +115,7 @@ namespace AutoKeyCombin
                     IsDownR(isdownR, interval);
                     IsDownD(isdownD, interval);
                 }
-                if (e.KeyData == (Keys.D3 | Keys.Alt))//精灵
+                if (e.KeyData == (Keys.H))//精灵
                 {
                     KeyDownUp(K_E, 2, thirdinterval);
                     KeyDownUp(K_Q, 1, thirdinterval);
@@ -124,7 +124,7 @@ namespace AutoKeyCombin
                     //IsDownD(true, interval);
                 }
 
-                if (e.KeyData == (Keys.D2 | Keys.Alt))//冰墙
+                if (e.KeyData == (Keys.G))//冰墙
                 {
                     KeyDownUp(K_E, 1, thirdinterval);
                     KeyDownUp(K_Q, 2, thirdinterval);
@@ -133,7 +133,7 @@ namespace AutoKeyCombin
                     //IsDownD(true, interval);
                 }
 
-                if (e.KeyData == (Keys.C | Keys.Alt))//急速冷却
+                if (e.KeyData == (Keys.D6))//急速冷却
                 {
                     KeyDownUp(K_Q, 3, thirdinterval);
 
