@@ -34,7 +34,6 @@ namespace AutoKeyCombin
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
@@ -44,7 +43,7 @@ namespace AutoKeyCombin
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(217, 247);
             this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
+            this.richTextBox1.Text = "开关 : F11\n跳窗: N";
             // 
             // Form1
             // 
@@ -53,8 +52,9 @@ namespace AutoKeyCombin
             this.ClientSize = new System.Drawing.Size(219, 312);
             this.Controls.Add(this.richTextBox1);
             this.Name = "Form1";
-            this.Text = "宝壳龙";
+            this.Text = "F11";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 
         }

@@ -9,18 +9,6 @@ namespace AutoKeyCombin
 {
     public class MyKey
     {
-        //F3 天火  +D
-        //4   地狱火 +D
-        //5  冲击波 +D 
-        //6  急速冷却 +D
-        //7  隐身  +D
-        //大写切换  电磁脉冲  +D
-        //T    飓风  +D
-        //H 精灵 +D
-        //G  冰墙  +D
-        
-        //迅捷  +D 不用
-        //F11开关
 
         public const int K_F3 = 103;
         public const int K_2 = 202;
@@ -40,7 +28,18 @@ namespace AutoKeyCombin
         public const int K_R = 304;
         public const int K_Down = 1;
         public const int K_Up = 2;
-        
+        public const int K_SPACE = 603;
+        public const int mouseLeftDown = 1;
+        public const int mouseLeftUp = 2;
+        public const int K_T = 305;
+
+        //功能： 模拟鼠标点击
+        //    参数： 1 =左键按下 ，2 =左键放开
+        //4 =右键按下 ，8 =右键放开
+        //16 =中键按下 ，32 =中键放开
+        //64 =4键按下 ，128 =4键放开
+        //256 =5键按下 ，512 =5键放开
+
         public static void KeyDownUp(int keycode, int RepeateTime,  int interval)
         {
             for (int i = 0; i < RepeateTime; i++)
@@ -50,6 +49,18 @@ namespace AutoKeyCombin
                 Form1.dd.key(keycode, K_Up);
             }
             
+        }
+        public static void LbtnAndMoveDown(int RepeateTime=3, int interval=10)
+        {
+            for (int i = 0; i < RepeateTime; i++)
+            {
+                Form1.dd.btn(1);                                    // 1=左键按下
+                Thread.Sleep(interval);
+                Form1.dd.btn(2);                                    // 2=左键放开 
+                Thread.Sleep(interval);
+                Form1.dd.movR(0, 2);                               //向下移动
+            }
+
         }
 
         public static void IsDownR(bool isdownR = true, int interval = 100)

@@ -60,85 +60,27 @@ namespace AutoKeyCombin
             }
             if (open)
             {
-                if (e.KeyData == (Keys.F3))//天火
+                if (e.KeyData == Keys.N)//大跳
                 {
-                    KeyDownUp(K_E, 3, thirdinterval);
+                    dd.key(MyKey.K_SPACE, MyKey.K_Down);
+                    Thread.Sleep(100);
+                    dd.key(MyKey.K_SPACE, MyKey.K_Up);
+                    Thread.Sleep(100);
+                    dd.key(MyKey.K_C, MyKey.K_Down);
+                    Thread.Sleep(100);
+                    dd.key(MyKey.K_C, MyKey.K_Up);
 
-                    IsDownR(isdownR, interval);
-                    //IsDownD(true,interval);
+                    //dd.key(MyKey.K_C, MyKey.K_Down);
+                    //Thread.Sleep(100);
+                    //dd.key(MyKey.K_SPACE, MyKey.K_Down);
+                    //Thread.Sleep(100);
+                    //dd.key(MyKey.K_C, MyKey.K_Up);
+                    //Thread.Sleep(100);
+                    //dd.key(MyKey.K_SPACE, MyKey.K_Up);
                 }
-                if (e.KeyData == (Keys.D4))//冲击波
+                if (e.KeyData == Keys.T) //
                 {
-                    KeyDownUp(K_Q, 1, thirdinterval);
-                    KeyDownUp(K_W, 1, thirdinterval);
-                    KeyDownUp(K_E, 1, thirdinterval);
-
-                    IsDownR(isdownR, interval);
-                    IsDownD(isdownD, interval);
-                }
-                if (e.KeyData == (Keys.D5))//地狱火
-                {
-                    KeyDownUp(K_W, 1,thirdinterval);
-                    KeyDownUp(K_E, 2, thirdinterval);
-
-                    IsDownR(isdownR, interval);
-                    IsDownD(isdownD, interval);
-                }
-                //if (e.KeyData == (Keys.D6))//迅捷
-                //{
-                //    KeyDownUp(K_W, 2, thirdinterval);
-                //    KeyDownUp(K_E, 1, thirdinterval);
-
-                //    IsDownR(isdownR, interval);
-                //    IsDownD(isdownD, interval);
-                //}
-                if (e.KeyData == (Keys.D7))//隐身
-                {
-                    KeyDownUp(K_Q, 2, thirdinterval);
-                    KeyDownUp(K_W, 1, thirdinterval);
-
-                    IsDownR(isdownR, interval);
-                    //IsDownD(true, interval);
-                }
-                if (e.KeyData == (Keys.CapsLock))//电磁脉冲
-                {
-                    KeyDownUp(K_W, 3, thirdinterval);
-
-                    IsDownR(isdownR, interval);
-                    IsDownD(isdownD, interval);
-                }
-                if (e.KeyData == (Keys.T))//飓风
-                {
-                    KeyDownUp(K_Q, 1, thirdinterval);
-                    KeyDownUp(K_W, 2, thirdinterval);
-
-                    IsDownR(isdownR, interval);
-                    IsDownD(isdownD, interval);
-                }
-                if (e.KeyData == (Keys.H))//精灵
-                {
-                    KeyDownUp(K_E, 2, thirdinterval);
-                    KeyDownUp(K_Q, 1, thirdinterval);
-
-                    IsDownR(isdownR, interval);
-                    //IsDownD(true, interval);
-                }
-
-                if (e.KeyData == (Keys.G))//冰墙
-                {
-                    KeyDownUp(K_E, 1, thirdinterval);
-                    KeyDownUp(K_Q, 2, thirdinterval);
-
-                    IsDownR(isdownR, interval);
-                    //IsDownD(true, interval);
-                }
-
-                if (e.KeyData == (Keys.D6))//急速冷却
-                {
-                    KeyDownUp(K_Q, 3, thirdinterval);
-
-                    IsDownR(isdownR, interval);
-                    IsDownD(isdownD, interval);
+                    LbtnAndMoveDown();
                 }
             }
 
@@ -147,6 +89,10 @@ namespace AutoKeyCombin
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             kh.UnHook();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
         }
     }
 }

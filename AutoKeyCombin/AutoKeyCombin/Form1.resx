@@ -117,17 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="richTextBox1.Text" xml:space="preserve">
-    <value>        //F3 天火  +D
-        //4   地狱火 +D
-        //5  冲击波 +D 
-        //   迅捷  +D 不用
-        //7  隐身  +D
-        //大写切换  电磁脉冲  +D
-        //T    飓风  +D
-        //H 精灵 +D
-        //G  冰墙  +D
-        //6  急速冷却 +D
-        //F11开关</value>
-  </data>
 </root>
