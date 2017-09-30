@@ -80,7 +80,10 @@ namespace AutoKeyCombin
                 }
                 if (e.KeyData == Keys.T) //
                 {
-                    LbtnAndMoveDown();
+                    //Point ms = MousePosition;
+                    //richTextBox1.Text += string.Format("{0}:{1}", ms.X, ms.Y)+Environment.NewLine;
+                    //MouseButtons mb = Control.MouseButtons;
+                    LbtnAndMoveDown(trackBar1.Value);
                 }
             }
 
@@ -93,6 +96,12 @@ namespace AutoKeyCombin
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            label1.Text = trackBar1.Value.ToString();
+        }
+
+        private void trackBar1_ValueChanged(object sender, EventArgs e)
+        {
+            label1.Text = trackBar1.Value.ToString();
         }
     }
 }

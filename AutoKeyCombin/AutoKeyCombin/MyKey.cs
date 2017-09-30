@@ -9,7 +9,7 @@ namespace AutoKeyCombin
 {
     public class MyKey
     {
-
+        //!M4  8倍  60
         public const int K_F3 = 103;
         public const int K_2 = 202;
         public const int K_3 = 203;
@@ -33,6 +33,10 @@ namespace AutoKeyCombin
         public const int mouseLeftUp = 2;
         public const int K_T = 305;
 
+        //M16   70
+        //UMP9  85
+        //AK    65
+       
         //功能： 模拟鼠标点击
         //    参数： 1 =左键按下 ，2 =左键放开
         //4 =右键按下 ，8 =右键放开
@@ -50,17 +54,16 @@ namespace AutoKeyCombin
             }
             
         }
-        public static void LbtnAndMoveDown(int RepeateTime=3, int interval=10)
+        public static void LbtnAndMoveDown(int DownSpeed, int RepeateTime=5, int interval=10)
         {
-            for (int i = 0; i < RepeateTime; i++)
-            {
-                Form1.dd.btn(1);                                    // 1=左键按下
-                Thread.Sleep(interval);
-                Form1.dd.btn(2);                                    // 2=左键放开 
-                Thread.Sleep(interval);
-                Form1.dd.movR(0, 2);                               //向下移动
-            }
+            //for (int i = 0; i < RepeateTime; i++)
+            //{
 
+            //}
+            Form1.dd.btn(1);                                    // 1=左键按下
+            Thread.Sleep(interval);
+            Form1.dd.btn(2);                                    // 2=左键放开 
+            Form1.dd.movR(0, DownSpeed);                               //向下移动
         }
 
         public static void IsDownR(bool isdownR = true, int interval = 100)

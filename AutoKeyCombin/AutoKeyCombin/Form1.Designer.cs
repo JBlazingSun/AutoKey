@@ -35,6 +35,9 @@ namespace AutoKeyCombin
         private void InitializeComponent()
         {
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.label1 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
             // richTextBox1
@@ -43,25 +46,51 @@ namespace AutoKeyCombin
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(217, 247);
             this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "开关 : F11\n跳窗: N";
+            this.richTextBox1.Text = "开关 : F11\n跳窗: N\n开火 : T\n\nUMP9\t85\nM4\nM16\t70\nAKM\t65\nSKS";
+            // 
+            // trackBar1
+            // 
+            this.trackBar1.Location = new System.Drawing.Point(12, 255);
+            this.trackBar1.Maximum = 100;
+            this.trackBar1.Minimum = 1;
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(195, 45);
+            this.trackBar1.TabIndex = 1;
+            this.trackBar1.Value = 65;
+            this.trackBar1.ValueChanged += new System.EventHandler(this.trackBar1_ValueChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(85, 311);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(41, 12);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "label1";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(219, 312);
+            this.ClientSize = new System.Drawing.Size(219, 332);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.richTextBox1);
             this.Name = "Form1";
             this.Text = "F11";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private RichTextBox richTextBox1;
+        private Label label1;
+        public TrackBar trackBar1;
     }
 }
 
